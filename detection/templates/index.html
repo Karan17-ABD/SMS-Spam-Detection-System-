@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Spam Detector App</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      padding: 0;
+      margin: 0;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #1e3c72, #2a5298);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 30px 20px;
+    }
+
+    .marquee {
+      width: 100%;
+      overflow: hidden;
+      white-space: nowrap;
+      box-sizing: border-box;
+      background: rgba(255, 255, 255, 0.15);
+      padding: 12px 0;
+      margin-bottom: 0;
+      border-radius: 20px;
+      backdrop-filter: blur(6px);
+      text-align: center;
+    }
+
+    .marquee p {
+      display: inline-block;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #ffffff;
+      padding-left: 100%;
+      animation: scroll-left 12s linear infinite;
+    }
+
+    @keyframes scroll-left {
+      0% {
+        transform: translateX(0%);
+      }
+      100% {
+        transform: translateX(-100%);
+      }
+    }
+
+    .glass-card {
+      position: relative;
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      border-radius: 40px;
+      padding: 60px 40px;
+      width: 100%;
+      max-width: 480px;
+      text-align: center;
+      backdrop-filter: blur(30px);
+      -webkit-backdrop-filter: blur(30px);
+      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.4);
+      animation: scaleFadeIn 1s ease forwards;
+      margin-top: 60px; /* Adjusts vertical spacing */
+    }
+
+    @keyframes scaleFadeIn {
+      0% {
+        transform: scale(0.85);
+        opacity: 0;
+      }
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    .glass-card::before {
+      content: '';
+      position: absolute;
+      top: -40px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 120px;
+      height: 120px;
+      background: radial-gradient(circle, #ffffff33, transparent 70%);
+      border-radius: 50%;
+      z-index: 0;
+      filter: blur(15px);
+      animation: pulseGlow 3s infinite ease-in-out;
+    }
+
+    @keyframes pulseGlow {
+      0%, 100% {
+        transform: translateX(-50%) scale(1);
+        opacity: 0.7;
+      }
+      50% {
+        transform: translateX(-50%) scale(1.2);
+        opacity: 1;
+      }
+    }
+
+    .glass-card h1 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 15px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .glass-card p {
+      font-size: 1.1rem;
+      color: #e0e0e0;
+      margin-bottom: 40px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      background: linear-gradient(135deg, #00c6ff, #0072ff);
+      color: #fff;
+      text-decoration: none;
+      font-size: 1.1rem;
+      font-weight: 600;
+      padding: 16px 32px;
+      border-radius: 50px;
+      box-shadow: 0 10px 30px rgba(0, 114, 255, 0.4);
+      transition: all 0.3s ease;
+      position: relative;
+      z-index: 1;
+    }
+
+    .btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 18px 40px rgba(0, 114, 255, 0.6);
+    }
+
+    .btn span {
+      font-size: 1.3rem;
+    }
+
+    @media (max-width: 500px) {
+      .glass-card {
+        padding: 40px 25px;
+        margin-top: 40px;
+      }
+
+      .glass-card h1 {
+        font-size: 2rem;
+      }
+
+      .glass-card p {
+        font-size: 1rem;
+      }
+
+      .btn {
+        padding: 14px 26px;
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Marquee Header -->
+  <div class="marquee">
+    <p>Karan's Spam Detection Web Application 🚨</p>
+  </div>
+
+  <!-- Glass Card -->
+  <div class="glass-card">
+    <h1>🚨 Spam Detector</h1>
+    <p>Smart filtering made easy. Tap below to begin!</p>
+    <a href="/check-spam/" class="btn">
+      <span>🚫</span> Detect Spam
+    </a>
+  </div>
+
+</body>
+</html>
